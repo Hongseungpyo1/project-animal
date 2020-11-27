@@ -25,7 +25,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     clientLogLevel: 'warning',
     historyApiFallback: {
       rewrites: [
-        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'index.html') },
+        /** 유기동물 메인 모듈 */
+        { from: /.*/, to: path.posix.join(config.dev.assetsPublicPath, 'ORGANI/index.html') },
       ],
     },
     hot: true,
@@ -53,8 +54,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.NoEmitOnErrorsPlugin(),
     // https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html',
+      filename: 'ORGANI/index.html',
+      template: './src/ORGANI/index.html',
       inject: true
     }),
     // copy custom static assets
