@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+/*------------------------------------------------------------------------------------------------------------------------------------------
+	File : layout.css
+ 	Author : alex. Hong 
+ 	CSS 적용순서 : 아이디 > 태그와 클래스 > 클래스 > 태그
+	CSS 선택자 선언순서 : Type Selector, Layout Selector, Class Selector, Etc
+	CSS 속성 선언순서 : display, position, float/clear, overflow, width/height, margin/padding, border, color/font, align, backgroun etc
+--------------------------------------------------------------------------------------------------------------------------------------------*/
+
+/* 버튼 Default Set */
+button {overflow:visible; /*outline:none;*/ cursor:pointer; border:0px; outline: none;}
+
+.header_wrap {position:fixed; left:0; top:0; z-index:10; width:100%; height:2.8125rem; background:#e9e9e9;}
+.header_btn {position:absolute; right:1.125rem; top:0.875rem; z-index:1; width:1.375rem;  height:1.125rem; text-indent:-9999px; background:url('../images/btn_lnb.png') left top no-repeat; background-size:100% 100%;}
+
+.header_wrap h1 {
+    margin: 0.3125rem 0 0 0.325rem;
+}
+.menu_wrap{
+    position: fixed;
+    top: 0;
+    left: -300px; /* 너비 300px 인 사이드바를 왼쪽으로 300px 이동시켜 화면에 보이지 않게 함 */
+    z-index: 400;
+    overflow: auto;
+    width: 300px; /* 너비 */
+    height: 100%;
+    padding: 50px 20px;
+    box-sizing: border-box;
+    transition: left .3s ease-in-out; /* 0.3초 동안 이동 애니메이션 */
+    background-color: #f0f0f0;
+}
+
+.menu_wrap.on {
+    left: 0;
+}

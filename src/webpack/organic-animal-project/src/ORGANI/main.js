@@ -24,6 +24,8 @@ import router from './js/router'
 
 Vue.config.productionTip = false
 
+require('@/ORGANI/css/layout.css')
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -26,6 +26,8 @@ Vue.use(Router)
 export default new Router({
     mode: 'history',
     routes: [
-        {path: '/ORGANI',   component: ORGANI }
+        {path: '/',   component: ORGANI },
+        {path: '/ORGANI',   component: ORGANI },
+        {path: '/ORGANI/MAN-01-001',   component: ORGANI }
     ]
   })

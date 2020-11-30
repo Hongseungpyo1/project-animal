@@ -19,7 +19,6 @@
  -->
 <template>
   <div id="app">
-    <img src="@/ORGANI/images/logo.png">TEST
     <router-view/>
   </div>
 </template>
