@@ -34,3 +34,13 @@ button {overflow:visible; /*outline:none;*/ cursor:pointer; border:0px; outline:
 .menu_wrap.on {
     left: 0;
 }
+
+#dimmed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
