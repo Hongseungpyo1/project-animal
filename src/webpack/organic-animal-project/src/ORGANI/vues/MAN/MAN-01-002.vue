@@ -1,7 +1,7 @@
 <!--
 /**
  * =================================================================
- * @FileName : MAN-01-001.vue
+ * @FileName : MAN-01-002.vue
  * @Description : 유기동물 조회 메인페이지
  * =================================================================
  * 수정일          수정자    수정내용
@@ -26,10 +26,10 @@
         <img src="@/ORGANI/images/banner.jpg" style="width:100%; height=200px;"/>
         <div class="contents" style="width:100%; height:100%">
             <div clase="infoClass" v-for="(rec, index) in animalKindval" :key="index" style="width: 100%; height: 110px;">
-                <img src="@/ORGANI/images/testImg.jpg" style="width: 100px;height: 100px; position: absolute; left: 10px" />
+                <img src="@/ORGANI/images/testImg2.jpeg" style="width: 100px;height: 100px; position: absolute; left: 10px" />
                 <div style="position: absolute; padding-left: 114px; text-align: left;"> 
-                    <span style="width: 100%; display: block;">종류 : {{rec.KNm}}</span>
-                    <span style="width: 100%; display: block;">코드 : {{rec.kindCd}} </span>
+                    <span style="width: 100%; display: block;">지역 : {{rec.orgdownNm}}</span>
+                    <span style="width: 100%; display: block;">코드 : {{rec.orgCd}} </span>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
 import { mapGetters } from 'vuex';
 import axios from 'axios'
 export default {
-    name: 'MAN-01-001',
+    name: 'MAN-01-002',
     components: {
 		
     },
@@ -68,27 +68,10 @@ export default {
 		
 	},
     created () {
-        // fetch('http://127.0.0.1:5000/kind/?up_kind_cd=417000').then((res)=>{
-        //     console.log('res ',res)
-        // })
-        //axios('http://127.0.0.1:5000/kind/?up_kind_cd=417000')
-        //jQuery.get('http://127.0.0.1:5000/kind/?up_kind_cd=417000')
-        
-        
-        axios({
-            method:'GET',
-            url : 'http://127.0.0.1:5000/shelter/?upr_cd=6110000&org_cd=3220000',
-            timeout : 3000
-        }).then((res)=>{
-            // console.log('res', res)
-        }).catch(err =>{
-            console.log('err', err)
-        })
         // 종류
-
         axios({
             method:'GET',
-            url : 'http://127.0.0.1:5000/kind/?up_kind_cd=417000',
+            url : 'http://127.0.0.1:5000/sido/',
             timeout : 3000
         }).then((res)=>{
             // this.animalKindval = res.data.content.rslt
@@ -112,9 +95,9 @@ export default {
         },
         movePage(val) {
             if(val == 1){
-                this.$router.push('/ORGANI/MAN-01-001')
+                this.$router.push("/ORGANI/MAN-01-001")
             }else if(val == 2){
-                this.$router.push('/ORGANI/MAN-01-002')
+                this.$router.push("/ORGANI/MAN-01-002")
             }
         }
     }

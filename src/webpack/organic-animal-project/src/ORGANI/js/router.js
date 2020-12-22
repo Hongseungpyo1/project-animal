@@ -18,16 +18,19 @@
  *  Copyright (C) 2020 by alex.Hong, All right reserved 
  * </pre>
  */
+Vue.use(Router)
 import Vue from 'vue'
 import Router from 'vue-router'
 import ORGANI from '@/ORGANI/vues/MAN/MAN-01-001'
-Vue.use(Router)
+
+const useComponent = component => () => import(`@/ORGANI/vues/${component}.vue`);
 
 export default new Router({
     mode: 'history',
     routes: [
-        {path: '/',   component: ORGANI },
-        {path: '/ORGANI',   component: ORGANI },
-        {path: '/ORGANI/MAN-01-001',   component: ORGANI }
+        { path: '/',   component: ORGANI },
+        { path: '/ORGANI',   component: ORGANI },
+        { path: '/ORGANI/MAN-01-001',   component: ORGANI },
+        { path: '/ORGANI/MAN-01-002', component: useComponent('MAN/MAN-01-002')}
     ]
   })

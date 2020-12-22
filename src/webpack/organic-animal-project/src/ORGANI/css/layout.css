@@ -44,3 +44,12 @@ button {overflow:visible; /*outline:none;*/ cursor:pointer; border:0px; outline:
     height: 100%;
     background-color: rgba(0,0,0,0.5);
 }
+
+.first_banner {
+    min-height: 0;
+    padding: 6em 2em 4em 2em;
+}
+
+#banner br {
+    display: none;
+}
