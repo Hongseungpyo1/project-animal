@@ -38,7 +38,10 @@
                 <button style=" width: 100%; background-color: #a862a9; font-size: 18px; color: #ffffff;"><a class="link_sub_item" @click="movePage(1)">종류</a></button>
             </div>
             <div style="width : 100%; margin-bottom: 12px; cursor: pointer;">
-                <button style=" width: 100%; background-color: #a862a9; font-size: 18px; color: #ffffff;"><a class="link_sub_item" @click="movePage(2)">지역</a></button>
+                <button style=" width: 100%; background-color: #a862a9; font-size: 18px; color: #ffffff;"><a class="link_sub_item" @click="movePage(2)">동물조회</a></button>
+            </div>
+            <div style="width : 100%; margin-bottom: 12px; cursor: pointer;">
+                <button style=" width: 100%; background-color: #a862a9; font-size: 18px; color: #ffffff;"><a class="link_sub_item" @click="movePage(3)">지역</a></button>
             </div>
         </div>
     </div>
@@ -112,9 +115,11 @@ export default {
         },
         movePage(val) {
             if(val == 1){
-                this.$router.push('/ORGANI/MAN-01-001')
-            }else if(val == 2){
-                this.$router.push('/ORGANI/MAN-01-002')
+                this.$router.push("/ORGANI/MAN-01-001")
+            } else if(val == 2){
+                this.$router.push("/ORGANI/MAN-01-002")
+            } else if(val == 3){
+                this.$router.push("/ORGANI/MAN-01-003")
             }
         }
     }

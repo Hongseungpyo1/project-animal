@@ -89,3 +89,9 @@ select {
     line-height: 1.4;
     /* color: #666666; */
 }
+
+.abandon_animal_info > .abandon_animal_detail {
+    background : no-repeat center 10%; 
+    background-size: 92%;
+    list-style:none;
+}

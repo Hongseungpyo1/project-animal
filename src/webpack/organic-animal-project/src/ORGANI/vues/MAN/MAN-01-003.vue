@@ -1,7 +1,7 @@
 <!--
 /**
  * =================================================================
- * @FileName : MAN-01-002.vue
+ * @FileName : MAN-01-003.vue
  * @Description : 유기동물 조회 메인페이지
  * =================================================================
  * 수정일          수정자    수정내용
@@ -23,6 +23,7 @@
             <h1>OAP</h1>
             <button type="button" class="header_btn" @click="testClose()"><span>닫기</span></button>
         </div>
+        <img src="@/ORGANI/images/banner.jpg" style="width:100%; height=200px;" @click="sidoChange()" />
         <div class="base_combobox">
             <label class="combobox_label">시/도 선택</label>
             <select v-model="sidoSelect" :change="sidoChange()">
@@ -37,17 +38,19 @@
                 <option v-for="(rec, index) in sigunguList" :key="index" :value="rec.orgCd">{{rec.orgdownNm}}</option>
             </select>
         </div>
-        <div class="abandon_animal_info">
-            <ul class="abandon_animal_detail">
-                <li v-for="(rec, index) in abandonList" :key="index" @click="popupTest(rec)" ><img :src="rec.filename" />
-                    <span style="display: block;">나이 : {{rec.age}}</span>
-                    <span style="display: block;">품종 : {{rec.kindCd}}</span>
-                    <span style="display: block;">보호소이름 : {{rec.careNm}}</span>
-                    <span style="display: block;">보호소 전화번호 : {{rec.careTel}}</span>
-                    <span style="display: block;">보호장소 : {{rec.careAddr}}</span>
-                </li>
-                
-            </ul>
+        <div class="base_combobox">
+            <label class="combobox_label">쉘터 선택</label>
+            <select  v-model="shelterSelect" >
+                <option disabled value="">please check one</option>
+                <option v-for="(rec, index) in shelterList" :key="index" :value="rec.careRegNo">{{rec.careNm}}</option>
+            </select>
+        </div>
+        <div class="base_combobox">
+            <label class="combobox_label">유기동물정보</label>
+            <select  v-model="shelterSelect" >
+                <option disabled value="">please check one</option>
+                <option v-for="(rec, index) in abandonList" :key="index" :value="rec.careNm">{{rec.kindCd}}</option>
+            </select>
         </div>
         <div :class="menuClass">
             <div style="width : 100%; margin-bottom: 12px; cursor: pointer;">
@@ -67,7 +70,7 @@
 import { mapGetters } from 'vuex';
 import axios from 'axios'
 export default {
-    name: 'MAN-01-002',
+    name: 'MAN-01-003',
     components: {
 		
     },
@@ -148,10 +151,6 @@ export default {
         })
     },
     methods: {
-        // 클릭시 팝업
-        popupTest(val){
-            console.log("val : ", val)
-        },
         //유기동물 조회
         abandonAnimal() {
             //http://127.0.0.1:5000/abandonment/?numOfRows=10&pageNo=1&bgnde=20140601&endde=20140630&care_reg_no=311322200900001&state=notice&neuter_yn=Y
@@ -178,7 +177,7 @@ export default {
         movePage(val) {
             if(val == 1){
                 this.$router.push("/ORGANI/MAN-01-001")
-            }else if(val == 2){
+            } else if(val == 2){
                 this.$router.push("/ORGANI/MAN-01-002")
             } else if(val == 3){
                 this.$router.push("/ORGANI/MAN-01-003")

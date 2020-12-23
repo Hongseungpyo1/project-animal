@@ -31,6 +31,7 @@ export default new Router({
         { path: '/',   component: ORGANI },
         { path: '/ORGANI',   component: ORGANI },
         { path: '/ORGANI/MAN-01-001',   component: ORGANI },
-        { path: '/ORGANI/MAN-01-002', component: useComponent('MAN/MAN-01-002')}
+        { path: '/ORGANI/MAN-01-002', component: useComponent('MAN/MAN-01-002')},
+        { path: '/ORGANI/MAN-01-003', component: useComponent('MAN/MAN-01-003')}
     ]
   })
