@@ -11,6 +11,11 @@
 /* 버튼 Default Set */
 button {overflow:visible; /*outline:none;*/ cursor:pointer; border:0px; outline: none;}
 
+body {
+    background: #202024;
+    color: rgba(255, 255, 255, 0.75);
+}
+
 .header_wrap {position:fixed; left:0; top:0; z-index:10; width:100%; height:2.8125rem; background:#e9e9e9;}
 .header_btn {position:absolute; right:1.125rem; top:0.875rem; z-index:1; width:1.375rem;  height:1.125rem; text-indent:-9999px; background:url('../images/btn_lnb.png') left top no-repeat; background-size:100% 100%;}
 
@@ -33,6 +38,7 @@ button {overflow:visible; /*outline:none;*/ cursor:pointer; border:0px; outline:
 
 .menu_wrap.on {
     left: 0;
+    background-color: #f7f1f7;
 }
 
 #dimmed {
@@ -50,6 +56,36 @@ button {overflow:visible; /*outline:none;*/ cursor:pointer; border:0px; outline:
     padding: 6em 2em 4em 2em;
 }
 
-#banner br {
-    display: none;
+select {
+    width:100%;
+	height:3.125rem;
+	padding:0 2.1875rem 0 1.125rem;
+	border:1px solid #d9d9d9;
+	border-radius:4px;
+	font-size:1.0625rem;
+	line-height:1;
+	color:#555555;
+	appearance:none;
+	-webkit-appearance:none;
+	-moz-appearance:none;
+	-o-appearance:none;
+	outline:0;
+	background:url('../images/bg_select_arrow.png') right 1rem center no-repeat;
+	background-size:0.9375rem auto;
+	background:none\9;
+	background-color:#fff;
+}
+
+.base_combobox {
+    position: relative;
+    padding-bottom: 1.25rem;
+}
+
+.base_combobox > .combobox_label {
+    margin-top: 0;
+    display: block;
+    margin: 0.625rem 0 0.5rem;
+    font-size: 1.0625rem;
+    line-height: 1.4;
+    /* color: #666666; */
 }

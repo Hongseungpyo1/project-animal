@@ -31,22 +31,22 @@ import store from '@/COMMON/store/store'
  * @param {Boolean} noLoading 전송 중 화면 진행 출력 여부 (true:출력안함)
  */
 
- const hubAjax = (method, headers, url, data, noLoading) => {
+ const comAjax = (method, url, data, noLoading) => {
+     console.log('data : ',data)
     return new Promise((resolve, reject) => {
-        if(!noLoading) util.eventBus('loadingShow')
+        // if(!noLoading) util.eventBus('loadingShow')
         axios({
             method,
             url,
-            // 서버 죽어서 TIMEOUT 1로 설정
-            // timeout: 100,
-            headers,
-            data
+            timeout: 1000,
+            // headers: getHeadersForHub(sessionStorage.LANG_CD, sessionStorage.TIMEZONE_OFFSET),
+            params: data,
+            dataType: 'text'
         }).then((result) => {
-            if(!noLoading) util.eventBus('loadingHide')
+            // if(!noLoading) util.eventBus('loadingHide')
             resolve(result)
         }).catch((err) => {
-            if(!noLoading) util.eventBus('loadingHide')
-            //  서버죽어서 TIMEOUT 1로 설정
+            // if(!noLoading) util.eventBus('loadingHide')
             // 네트워크 에러 발생시 처리
             reject(err)
         })
@@ -65,4 +65,9 @@ function getHeadersForHub (lang, offset) {
         'Accept-Language': lang ? lang : 'ko',
         'TIMEZONE_OFFSET': offset
     }
+}
+export default {
+    axios: axios,
+    comAjax: comAjax
+
 }

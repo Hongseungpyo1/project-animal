@@ -21,8 +21,12 @@
 import Vue from 'vue'
 import ORGANI from './App'
 import router from './js/router'
+/* 서버 통신을 위한 library */
+import communicate from '@/COMMON/js/communicate'
 
 Vue.config.productionTip = false
+// 서버 통신 API 함수 VueModel 정의
+Vue.prototype.$communicate = communicate
 
 require('@/ORGANI/css/layout.css')
 

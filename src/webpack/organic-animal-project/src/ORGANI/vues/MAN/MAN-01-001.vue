@@ -34,12 +34,12 @@
             </div>
         </div>
         <div :class="menuClass">
-            <div>
+            <div style="width : 100%; margin-bottom: 12px; cursor: pointer;">
+                <button style=" width: 100%; background-color: #a862a9; font-size: 18px; color: #ffffff;"><a class="link_sub_item" @click="movePage(1)">종류</a></button>
             </div>
-            <ul class="list">
-                <li class=""><a class="link_sub_item" @click="movePage(1)">종류</a></li>
-                <li class=""><a class="link_sub_item" @click="movePage(2)">지역</a></li>
-            </ul>
+            <div style="width : 100%; margin-bottom: 12px; cursor: pointer;">
+                <button style=" width: 100%; background-color: #a862a9; font-size: 18px; color: #ffffff;"><a class="link_sub_item" @click="movePage(2)">지역</a></button>
+            </div>
         </div>
     </div>
 </template>
