@@ -77,12 +77,9 @@ export default {
             animalKindval : [],
             sido : [],
             sigungu : [],
-            shelter : [],
             sidoSelect : '',
             sigunguSelect : '',
             sigunguList : [],
-            shelterSelect : '',
-            shelterList : [],
             abandonSelect : '',
             abandonList : []
         }
@@ -104,33 +101,22 @@ export default {
                 return 
             })
         },
-        shelterVal() {
-            console.log('this.sidoSelect : ',this.sidoSelect)
-            console.log('this.sigunguSelect : ',this.sigunguSelect)
-            this.$communicate.comAjax('get','http://127.0.0.1:5000/shelter/',{
-                upr_cd: this.sidoSelect,
-                org_cd: this.sigunguSelect
-            }).then((res)=>{
-                return this.shelterList = res.data.content.rslt
-                console.log('this.shelterList : ',this.shelterList[0])
-            }).catch(err =>{
-                console.log('err', err)
-            })
-        },
         abandonAnimalVal(){
-            this.$communicate.comAjax('get','http://127.0.0.1:5000/abandonment/',{
-                numOfRows: 10,
-                pageNo: 1,
-                // bgnde: 20140601,
-                upr_cd: this.sidoSelect,
-                org_cd: this.sigunguSelect,
-                upkind: 417000
-            }).then((res)=>{
-                return this.abandonList = res.data.content.rslt
-                console.log('this.abandonList : ',this.abandonList[0])
-            }).catch(err =>{
-                console.log('err', err)
-            })
+            if(this.sigunguSelect != ""){
+                this.$communicate.comAjax('get','http://127.0.0.1:5000/abandonment/',{
+                    numOfRows: 10,
+                    pageNo: 1,
+                    // bgnde: 20140601,
+                    upr_cd: this.sidoSelect,
+                    org_cd: this.sigunguSelect,
+                    upkind: 417000
+                }).then((res)=>{
+                    return this.abandonList = res.data.content.rslt
+                    console.log('this.abandonList : ',this.abandonList[0])
+                }).catch(err =>{
+                    console.log('err', err)
+                })
+            }
         }
     },
     watch: {
@@ -142,7 +128,7 @@ export default {
         .then(
             (res)=>{
             this.sido = res.data.content.rslt
-            console.log('this.sido : ',this.sido[0])
+            console.log('시도 : ',this.sido[0])
         }).catch(err =>{
             console.log('err', err)
         })
@@ -158,13 +144,12 @@ export default {
         },
         //시군구 콤보박스 선택
         sigunguChange() {
-            console.log("this.sigunguSelect : ", this.sigunguSelect)
-            this.shelterVal
+            console.log("시군구 콤보박스 선택: ", this.sigunguSelect)
             this.abandonAnimalVal
         },
         //시도 선택
         sidoChange() {
-            console.log("this.sidoSelect : ", this.sidoSelect)
+            console.log("시도 콤보박스 선택 : ", this.sidoSelect)
             this.sigunguVal
         },
         // 햄버거 버튼 클릭(메뉴)
